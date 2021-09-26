@@ -1,0 +1,20 @@
+import {BaseService} from "..";
+
+export class UrlFinder extends BaseService {
+    constructor() {
+        super(`${process.env.REACT_APP_API_URL}`)
+    }
+
+    getUrlLogin = () => {
+        return "/login"
+    }
+
+    getUrlHome = () => {
+        return "/"
+    }
+
+    getLastElement = () => {
+        let lastElement = window.location.href.split("/")
+        return lastElement[lastElement.length - 1];
+    }
+}
