@@ -1,8 +1,10 @@
 import {Switch, Route, Redirect} from "react-router-dom"
 import React, {Component} from 'react';
-import {LoginScreen} from "./screens";
+import {LoginScreen, HomeScreen, ProgrammingTaskScreen, TechStepsScreen} from "./screens";
 import './App.css';
 import {UrlFinder} from "./services";
+import "react-toastify/dist/ReactToastify.css";
+
 
 class App extends Component {
     constructor(props) {
@@ -20,10 +22,15 @@ class App extends Component {
     render() {
         return (
             <Switch>
+                <Route path="/" component={HomeScreen} exact/>
+                <Route path={this.urlFinder.getUrlProgrammingTask()} component={ProgrammingTaskScreen} exact/>
+                <Route path={this.urlFinder.getUrlTechSteps()} component={TechStepsScreen} exact/>
                 <Route path={this.urlFinder.getUrlLogin()} component={LoginScreen} exact/>
-                <Route path="/" exact render={() => <Redirect to="/Login"/>}/>
-                {/*<Route path="/modal" render={props => <ModalNovaEdicao {...props} />} exact/>*/}
-                {/*<Route path="/Crescer" component={Edicoes} exact/>*/}
+                <Route path={this.urlFinder.getUrlLogout()} exact render={() => {
+                    localStorage.clear()
+                    return <Redirect to='/Login'/>
+                }
+                }/>
             </Switch>
         );
     }

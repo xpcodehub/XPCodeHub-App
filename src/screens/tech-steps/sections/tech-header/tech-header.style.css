@@ -1,0 +1,50 @@
+.formacao-header {
+    color: #fffafa;
+    background-color: #3a8bbd;
+    padding: 0 10%;
+}
+
+.formacao-header-icon--degree {
+    height: 150px;
+    width: 150px;
+    background-image: url(https://www.alura.com.br/assets/api/formacoes/categorias/branco/front-end.svg);
+}
+
+.container-tech-steps {
+    width: auto;
+    padding: 1% 0 0.2% 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.formacao-header-titulo {
+    font-size: 42px;
+    padding: 6px 0;
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-shadow: 0 4px 4px rgb(0 0 0);
+}
+
+.formacao-headline-subtitulo {
+    font-size: 23px;
+    max-width: 730px;
+    margin-top: 0;
+    line-height: 1.22;
+    font-weight: 400;
+}
+
+.guide-card__progress-bar__svg{
+    transform: rotate(180deg);
+    background-color: #2f922f;
+}
+
+.formacao-header-dados {
+    width: 80%;
+    padding: 10px 0;
+}
+
+.formacao_user-follow-certificate{
+    width: auto;
+}

@@ -1,0 +1,130 @@
+.tech-page-circle-1 {
+    overflow: hidden;
+    position: absolute;
+    width: 35vw;
+    height: 35vw;
+    bottom: -60%;
+    left: 0;
+    z-index: -1;
+}
+
+.tech-page-circle-1::before {
+    overflow: hidden;
+    content: '';
+    transform: translate(-30%, 30%);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-color: rgba(188, 58, 128, .1);
+}
+
+.tech-page-circle-2 {
+    position: absolute;
+    overflow: hidden;
+    width: 30vw;
+    height: 30vw;
+    left: -15vw;
+    top: 30vh;
+    z-index: -1;
+}
+
+.tech-page-circle-2::before {
+    content: '';
+    transform: translateY(-30%);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-color: rgba(52, 87, 178, .1);
+}
+
+.tech-page-circle-3{
+    position: absolute;
+    overflow: hidden;
+    width: 30vw;
+    height: 30vw;
+    top: 70vh;
+    right: 0;
+    z-index: -1;
+}
+
+.tech-page-circle-3::before {
+    content: '';
+    transform: translateX(30%);
+    position: absolute;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-color: rgba(37, 128, 142, 0.1);
+}
+
+.tech-steps{
+    height: 100vh;
+    width: 100%;
+}
+
+.tech-body{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.tech-concepts{
+    background-color: #202027;
+    height: 100%;
+    width: 80%;
+    margin: 5% 10%;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.specific-concept{
+    height: 20%;
+    width: 90%;
+    background-color: rgba(63, 140, 191, 0.9);
+    border-radius: 30px;
+
+    padding: 0 5%;
+    margin: 2% 0 0 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icons-specific-concept{
+    width: 12%;
+    max-height: 10%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon-check-clickable:hover{
+    transition: 0.5s;
+    color: rgba(68, 227, 7, 0.5);
+}
+
+.icon-check-clickable:active{
+    color: rgb(68, 227, 7);
+}
+
+.icon-play-clickable:hover{
+    transition: 0.5s;
+    color: rgba(255, 0, 38, 0.8);
+}
+
+.icon-code-clickable:hover{
+    transition: 0.5s;
+    color: rgba(23, 23, 23, 0.8);
+}

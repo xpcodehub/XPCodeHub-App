@@ -17,4 +17,16 @@ export class UrlFinder extends BaseService {
         let lastElement = window.location.href.split("/")
         return lastElement[lastElement.length - 1];
     }
+
+    getUrlLogout = () => {
+        return "/logout"
+    }
+
+    getUrlProgrammingTask = () => {
+        return "/programming-task";
+    }
+
+    getUrlTechSteps = () => {
+        return "/tech-steps";
+    }
 }

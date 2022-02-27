@@ -31,27 +31,30 @@ export class LoginScreen extends Component {
 
     logar = async () => {
 
-        if (this.state.usuario === "") {
-            this.toast.erro("Informe o Usuário para logar")
+        if (this.state.email === "") {
+            this.toast.erro("Fill the Email field to login! ⚠")
             return;
         }
-        if (this.state.senha === "") {
-            this.toast.erro("Informe a Senha para logar")
+        if (this.state.password === "") {
+            this.toast.erro("Fill the Password field to login! ⚠")
             return;
         }
 
-        let stateAtual = this.state
-        stateAtual.botaoLogin = false
-        this.setState(stateAtual)
+        // let stateAtual = this.state
+        // stateAtual.botaoLogin = false
+        // this.setState(stateAtual)
 
-        await this.loginService.login({
-            login: this.state.user,
-            senha: this.state.senha
-        }).then(() => {
+        // await this.loginService.login({ TODO
+        //     login: this.state.user,
+        //     senha: this.state.password
+        // }).then(() => {
+        //     this.setState({
+        //         redirect: "/"
+        //     })
+        // })
             this.setState({
                 redirect: "/"
             })
-        })
     };
 
     pressionouEnter = event => {
@@ -69,7 +72,7 @@ export class LoginScreen extends Component {
             <>
                 <div className="full-height-grow">
                     <Header/>
-                    <div className="container full-height-grow">
+                    <div className="container-login full-height-grow">
                         <section className="join-main-section">
                             <h1 className="join-text">
                                 Join the
@@ -110,7 +113,7 @@ export class LoginScreen extends Component {
                                     pressionouEnter={this.pressionouEnter}
                                 />
                                 <div className="input-group">
-                                    <button type="submit" className="btn">Join Now</button>
+                                    <button type="button" className="btn" onClick={this.logar}>Join Now</button>
                                 </div>
                             </form>
                         </section>
