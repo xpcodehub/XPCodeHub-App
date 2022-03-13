@@ -1,37 +1,36 @@
-import programmingLogicIcon from './icons/programming-logic.png'
-import gitIcon from './icons/git.png'
-import oopIcon from './icons/oop.png'
-import javaIcon from './icons/java.png'
-import sqlIcon from './icons/sql.jpg'
-import postgresqlIcon from './icons/postgresql.png'
-import gradleIcon from './icons/gradle.png'
-import mavenIcon from './icons/maven.png'
-import springbootIcon from './icons/springboot.png'
-import herokuIcon from './icons/heroku.png'
+const programmingLogicIcon = 'https://xpcodehub.surge.sh/icons/programming-logic.png'
+const oopIcon = 'https://xpcodehub.surge.sh/icons/oop.png'
+const javaIcon = 'https://xpcodehub.surge.sh/icons/java.png'
+const sqlIcon = 'https://xpcodehub.surge.sh/icons/sql.jpg'
+const postgresqlIcon = 'https://xpcodehub.surge.sh/icons/postgresql.png'
+const gradleIcon = 'https://xpcodehub.surge.sh/icons/gradle.png'
+const mavenIcon = 'https://xpcodehub.surge.sh/icons/maven.png'
+const springbootIcon = 'https://xpcodehub.surge.sh/icons/springboot.png'
+const herokuIcon = 'https://xpcodehub.surge.sh/icons/heroku.png'
 
-import htmlIcon from './icons/html.png';
-import cssIcon from './icons/css.png';
-import javascriptIcon from './icons/javascript.png';
-import jqueryIcon from './icons/jquery.png';
-import bootstrapIcon from './icons/bootstrap.png';
-import commandIcon from './icons/command.png';
-import reactIcon from './icons/react.png';
+const htmlIcon = 'https://xpcodehub.surge.sh/icons/html.png';
+const cssIcon = 'https://xpcodehub.surge.sh/icons/css.png';
+const javascriptIcon = 'https://xpcodehub.surge.sh/icons/javascript.png';
+const jqueryIcon = 'https://xpcodehub.surge.sh/icons/jquery.png';
+const bootstrapIcon = 'https://xpcodehub.surge.sh/icons/bootstrap.png';
+const commandIcon = 'https://xpcodehub.surge.sh/icons/command.png';
+const reactIcon = 'https://xpcodehub.surge.sh/icons/react.png';
 
-import dartIcon from './icons/dart.png';
-import flutterIcon from './icons/flutter.png';
+const dartIcon = 'https://xpcodehub.surge.sh/icons/dart.png';
+const flutterIcon = 'https://xpcodehub.surge.sh/icons/flutter.png';
 
+const gitIcon = 'https://xpcodehub.surge.sh/icons/git.png'
 
 export const data =
     [
         {
-            tree: {
                 id: "backend",
                 title: "Back End Developer Skills",
                 root: [
                     {
                         id: 'programming-logic',
                         title: 'Programming Logic',
-                        icon: programmingLogicIcon,
+                        icon: programmingLogicIcon.toString(),
                         tooltip: {
                             content:
                                 'descricao', //TODO
@@ -40,7 +39,7 @@ export const data =
                             {
                                 id: 'git',
                                 title: 'Git',
-                                icon: gitIcon,
+                                icon: gitIcon.toString(),
                                 tooltip: {
                                     content:
                                         'descricao', //TODO
@@ -50,7 +49,7 @@ export const data =
                             {
                                 id: 'oop',
                                 title: 'Object Oriented Programming',
-                                icon: oopIcon,
+                                icon: oopIcon.toString(),
                                 tooltip: {
                                     content:
                                         'descricao', //TODO
@@ -59,7 +58,7 @@ export const data =
                                     {
                                         id: 'java',
                                         title: 'Java',
-                                        icon: javaIcon,
+                                        icon: javaIcon.toString(),
                                         tooltip: {
                                             content:
                                                 'descricao', //TODO
@@ -68,7 +67,7 @@ export const data =
                                             {
                                                 id: 'gradle',
                                                 title: 'Gradle',
-                                                icon: gradleIcon,
+                                                icon: gradleIcon.toString(),
                                                 tooltip: {
                                                     content:
                                                         'descricao', //TODO
@@ -78,7 +77,7 @@ export const data =
                                             {
                                                 id: 'maven',
                                                 title: 'Maven',
-                                                icon: mavenIcon,
+                                                icon: mavenIcon.toString(),
                                                 tooltip: {
                                                     content:
                                                         'descricao', //TODO
@@ -87,7 +86,7 @@ export const data =
                                                     {
                                                         id: 'spring-boot',
                                                         title: 'Spring Boot',
-                                                        icon: springbootIcon,
+                                                        icon: springbootIcon.toString(),
                                                         tooltip: {
                                                             content:
                                                                 'descricao', //TODO
@@ -96,7 +95,7 @@ export const data =
                                                             {
                                                                 id: 'heroku',
                                                                 title: 'Heroku',
-                                                                icon: herokuIcon,
+                                                                icon: herokuIcon.toString(),
                                                                 tooltip: {
                                                                     content:
                                                                         'descricao', //TODO
@@ -112,7 +111,7 @@ export const data =
                                     {
                                         id: 'sql',
                                         title: 'SQL',
-                                        icon: sqlIcon,
+                                        icon: sqlIcon.toString(),
                                         tooltip: {
                                             content:
                                                 'descricao', //TODO
@@ -121,7 +120,7 @@ export const data =
                                             {
                                                 id: 'postegresql',
                                                 title: 'PostegreSQL',
-                                                icon: postgresqlIcon,
+                                                icon: postgresqlIcon.toString(),
                                                 tooltip: {
                                                     content:
                                                         'descricao', //TODO
@@ -135,17 +134,15 @@ export const data =
                         ],
                     },
                 ]
-            }
         },
         {
-            tree: {
                 id: "frontend",
                 title: "Front End Developer Skills",
                 root: [
                     {
                         id: 'web-html',
                         title: 'HTML',
-                        icon: htmlIcon,
+                        icon: htmlIcon.toString(),
                         tooltip: {
                             content:
                                 'HyperText Markup Language (HTML) is the standard markup language used to create web pages. A markup language is your way of making notes in a digital document that can be distinguished from regular text. It’s the most basic building block you’ll need for developing websites.',
@@ -154,7 +151,7 @@ export const data =
                             {
                                 id: 'web-css',
                                 title: 'CSS',
-                                icon: cssIcon,
+                                icon: cssIcon.toString(),
                                 tooltip: {
                                     content:
                                         'CSS (Cascading Style Sheets) is the language used to present the document you create with HTML. Where HTML comes first and creates the foundation for your page, CSS comes along next and is used to create the page’s layout, color, fonts, and…well, the style!',
@@ -163,7 +160,7 @@ export const data =
                                     {
                                         id: 'web-bootstrap',
                                         title: 'Bootstrap',
-                                        icon: bootstrapIcon,
+                                        icon: bootstrapIcon.toString(),
                                         tooltip: {
                                             content:
                                                 'Bootstrap is the most popular CSS Framework for developing responsive and mobile-first websites.',
@@ -175,7 +172,7 @@ export const data =
                             {
                                 id: 'web-javascript',
                                 title: 'JavaScript',
-                                icon: javascriptIcon,
+                                icon: javascriptIcon.toString(),
                                 tooltip: {
                                     content:
                                         'JavaScript is a programming language used to implement interactive features like audio and video, games, scrolling abilities and page animations.',
@@ -184,7 +181,7 @@ export const data =
                                     {
                                         id: 'web-jquery',
                                         title: 'jQuery',
-                                        icon: jqueryIcon,
+                                        icon: jqueryIcon.toString(),
                                         tooltip: {
                                             content:
                                                 'jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.',
@@ -194,7 +191,7 @@ export const data =
                                     {
                                         id: 'web-command',
                                         title: 'Command Line',
-                                        icon: commandIcon,
+                                        icon: commandIcon.toString(),
                                         tooltip: {
                                             content:
                                                 'There are going to be times when you’ll need to open a terminal on your computer where you can enter typed commands (command line) to get what you need.',
@@ -203,7 +200,7 @@ export const data =
                                             {
                                                 id: 'web-react',
                                                 title: 'React',
-                                                icon: reactIcon,
+                                                icon: reactIcon.toString(),
                                                 tooltip: {
                                                     content:
                                                         'React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called components.',
@@ -217,18 +214,16 @@ export const data =
                         ],
                     },
                 ]
-            }
         },
 
         {
-            tree: {
                 id: "mobile",
                 title: "Mobile Developer Skills",
                 root: [
                     {
                         id: 'dart',
                         title: 'Dart',
-                        icon: dartIcon,
+                        icon: dartIcon.toString(),
                         tooltip: {
                             content:
                                 'Dart is a programming language designed for client development, such as for the web and mobile apps. It is developed by Google and can also be used to build server and desktop applications.\n' +
@@ -239,7 +234,7 @@ export const data =
                             {
                                 id: 'flutter',
                                 title: 'Flutter',
-                                icon: flutterIcon,
+                                icon: flutterIcon.toString(),
                                 tooltip: {
                                     content:
                                         'Flutter is an open-source UI software development kit created by Google. It is used to develop cross platform applications for Android, iOS, Linux, Mac, Windows, Google Fuchsia, and the web from a single codebase.',
@@ -249,8 +244,15 @@ export const data =
                         ],
                     },
                 ]
-            }
         }
     ];
+
+console.log("presenteee")
+console.log(gitIcon)
+console.log(gitIcon.toLocaleString())
+console.log(gitIcon)
+console.log(JSON.stringify(data))
+
+
 
 export default data;

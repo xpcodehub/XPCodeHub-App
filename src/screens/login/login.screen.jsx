@@ -22,8 +22,6 @@ export class LoginScreen extends Component {
     handleChange = event => {
         const {name, value} = event.target;
 
-        console.log("name:" + name)
-        console.log("value:" + value)
         this.setState({
             [name]: value
         });
@@ -40,21 +38,18 @@ export class LoginScreen extends Component {
             return;
         }
 
-        // let stateAtual = this.state
-        // stateAtual.botaoLogin = false
-        // this.setState(stateAtual)
+        let stateAtual = this.state
+        stateAtual.botaoLogin = false
+        this.setState(stateAtual)
 
-        // await this.loginService.login({ TODO
-        //     login: this.state.user,
-        //     senha: this.state.password
-        // }).then(() => {
-        //     this.setState({
-        //         redirect: "/"
-        //     })
-        // })
+        await this.loginService.login({
+            email: this.state.email,
+            password: this.state.password
+        }).then(() => {
             this.setState({
                 redirect: "/"
             })
+        })
     };
 
     pressionouEnter = event => {

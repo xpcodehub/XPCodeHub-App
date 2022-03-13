@@ -8,8 +8,12 @@ export class SkillTreeService extends BaseService {
     }
 
     getSkillTreeList = async () => {
-        return super.get(`/skill-tree`, {
+        console.log("iuhuu, cheguei aqui")
+        let requisicaoTeste = await super.get(`/skill-tree`, {
             authorized: true
-        })
+        });
+        console.log("bati no back")
+        console.log(requisicaoTeste)
+        return requisicaoTeste
     }
 }

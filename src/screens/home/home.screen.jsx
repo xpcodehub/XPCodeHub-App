@@ -3,20 +3,26 @@ import "./home.style.css"
 import {Header} from "../../components";
 import {SkillTreeSection} from "./sections/skill-tree.section"
 import {SkillTreeService} from "../../services";
-import data from './TODOreturn-from-back/TODOreturn-from-back'; //TODO retirar
+import data from './TODOreturn-from-back/TODOreturn-from-back-teste';
 
 
 export class HomeScreen extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            skillTreeData: data
+        }
 
         this.skillTreeService = new SkillTreeService()
+        this.getSkillTreeData()
     }
 
-    getSkillTreeData = () => {
-        // return await this.skillTreeService.getSkillTreeList() TODO fazer endpoint no backend e trazer do banco
-        return data; //Fazer umas lista de 3
+    getSkillTreeData = async () => {
+        const skillTree =  await this.skillTreeService.getSkillTreeList();
+        this.setState({
+            skillTreeData: skillTree
+        })
+
     };
 
     render() {
@@ -25,7 +31,7 @@ export class HomeScreen extends Component {
                 <div className="home">
                     <Header/>
                     <div className="skill-trees-container">
-                        {this.getSkillTreeData().map((skillTree) => {
+                        {this.state.skillTreeData.map((skillTree) => {
                             return <SkillTreeSection data={skillTree}/>
                         })}
                     </div>

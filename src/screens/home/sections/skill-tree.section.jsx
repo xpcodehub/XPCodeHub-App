@@ -40,10 +40,10 @@ export class SkillTreeSection extends Component {
                         <SkillTreeGroup theme={theme}>
                             {() => {
                                 return (
-                                    <SkillTree treeId={this.props.data.tree.title}
-                                               title={this.props.data.tree.title}
-                                               data={this.props.data.tree.root}
-                                               savedData={this.getSkillTreeSavedData(this.props.data.tree.id)}
+                                    <SkillTree treeId={this.props.data.id}
+                                               title={this.props.data.title}
+                                               data={this.props.data.root}
+                                               savedData={this.getSkillTreeSavedData(this.props.data.id)}
                                                handleNodeSelect={(event) => this.selectSkill(event.key)}
                                     />
                                 )

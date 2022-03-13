@@ -10,7 +10,7 @@ const httpClient = baseURL => axios.create({
 
 const mountAuthHeader = (headers) => ({
   ...headers,
-  'Authorization' : localStorage.getItem('token-xpcodehub-login')
+  'Authorization' : `Bearer ${localStorage.getItem('token-xpcodehub-login')}`
 })
 
 export class BaseService {
