@@ -110,6 +110,10 @@
     align-items: center;
 }
 
+.icon-check:active{
+    color: rgb(68, 227, 7);
+}
+
 .icon-check-clickable:hover{
     transition: 0.5s;
     color: rgba(68, 227, 7, 0.5);
