@@ -51,7 +51,7 @@ export class TechStepsScreen extends Component {
                             <div className="specific-concept">
                                 <h3>Let's code Html</h3>
                                 <div className="icons-specific-concept">
-                                    <FontAwesomeIcon icon={faCode} className="icon-code-clickable" size="2x"/> {/*TODO Abrir modal com explicação de como fazer e qual projeto clonar para fazer os exercícios*/}
+                                    <FontAwesomeIcon icon={faCode} className="icon-code-clickable" size="2x"/> {/*TODO Abrir modal com explicação de como fazer e qual projeto clonar para fazer os exercícios de codificação*/}
                                     <FontAwesomeIcon icon={faCheck} className="icon-check-clickable" size="2x"/>
                                 </div>
                             </div>
