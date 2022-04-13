@@ -110,6 +110,16 @@
     align-items: center;
 }
 
+.icon-clone {
+    color: #cccccc;
+    margin: 2% 2%;
+}
+
+.icon-clone:active {
+    color: #7f7f7f;
+    margin: 2% 2%;
+}
+
 .icon-check:active{
     color: rgb(68, 227, 7);
 }
@@ -117,6 +127,11 @@
 .icon-check-clickable:hover{
     transition: 0.5s;
     color: rgba(68, 227, 7, 0.5);
+}
+
+.icon-quiz-clickable:hover{
+    transition: 0.5s;
+    color: rgba(49, 9, 226, 0.5);
 }
 
 .icon-check-clickable:active{
@@ -131,4 +146,26 @@
 .icon-code-clickable:hover{
     transition: 0.5s;
     color: rgba(23, 23, 23, 0.8);
+}
+
+.coding-task-modal-centralize{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.coding-task-modal-code-centralize {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.coding-task-modal{
+    color: #2F303A;
+}
+
+.coding-task-modal-code-tag {
+    background-color: #f1f1f1;
+    padding: 2%;
 }

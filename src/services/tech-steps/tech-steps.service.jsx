@@ -1,14 +1,13 @@
 import {BaseService} from "..";
 
 
-export class SkillTreeService extends BaseService {
+export class TechStepsService extends BaseService {
     constructor() {
         super(`${process.env.REACT_APP_API_URL}`)
-
     }
 
-    getSkillTreeList = async () => {
-        return super.get(`/skill-tree`, {
+    getTechSteps = async (idName) => {
+        return await super.get(`/tech-steps/${idName}`, {
             authorized: true
         })
     }

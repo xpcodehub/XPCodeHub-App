@@ -35,5 +35,16 @@ export class ToastService {
         })
     }
 
+    info = (phrase) => {
+        toast.info(phrase, {
+            position: positionCenter,
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true
+        });
+    }
+
 
 }

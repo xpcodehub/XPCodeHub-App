@@ -27,6 +27,6 @@ export class UrlFinder extends BaseService {
     }
 
     getUrlTechSteps = () => {
-        return "/tech-steps";
+        return "/tech-steps/:idName";
     }
 }
