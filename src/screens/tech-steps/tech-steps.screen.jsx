@@ -3,11 +3,14 @@ import {Header} from "../../components";
 import './tech-steps.style.css'
 import 'react-modal-video/css/modal-video.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faPlayCircle, faCheck, faCode, faPen, faClone} from '@fortawesome/free-solid-svg-icons'
+import {faCheck, faClone, faCode, faPen, faPlayCircle} from '@fortawesome/free-solid-svg-icons'
 import ModalVideo from 'react-modal-video'
 import {TechHeaderSection} from "./sections/tech-header/tech-header.section";
 import {TechStepsService, ToastService} from "../../services";
 import Modal from 'react-bootstrap/Modal'
+import {Gif} from '@giphy/react-components'
+import {GiphyFetch} from '@giphy/js-fetch-api'
+import {Redirect} from "react-router-dom";
 
 
 export class TechStepsScreen extends Component {
@@ -16,14 +19,29 @@ export class TechStepsScreen extends Component {
         super(props);
         this.state = {
             modalVideoAulaId: false,
-            techConceptList: [],
-            renderCodingTaskModal: false
+            techSteps: {techConceptList:[]},
+            renderCodingTaskModal: false,
+            gif: false
         }
 
         this.techStepsService = new TechStepsService();
         this.toast = new ToastService();
         console.log(this.props)
         this.getTechSteps(this.props.match.params.idName);
+        this.getGif()
+    }
+
+    getRandomNumberWithHigherProbabilityForLowestNumbers = (max) => {
+        return Math.floor(Math.pow(Math.random(), 2) * max);
+    }
+
+    getGif = async () => {
+        const gif = await new GiphyFetch('MCUPVryg2ydH59s7daR3AgbYAOKczUSN').search('computer', //TODO add in a local secret and create production SDK
+            {type: 'gifs', limit: 1, rating: 'g', offset: this.getRandomNumberWithHigherProbabilityForLowestNumbers(100)})
+        console.log(gif)
+        this.setState({
+            gif: gif.data[0]
+        })
     }
 
     renderModalVideoAula = (youtubeId) => {
@@ -36,7 +54,7 @@ export class TechStepsScreen extends Component {
     getTechSteps = async (idName) => {
         const techSteps = await this.techStepsService.getTechSteps(idName);
         this.setState({
-            techConceptList: techSteps.techConceptList
+            techSteps: techSteps
         })
     }
 
@@ -54,7 +72,10 @@ export class TechStepsScreen extends Component {
                 return <>
                     <FontAwesomeIcon icon={faPlayCircle} className="icon-play-clickable" size="2x"
                                      onClick={() => this.renderModalVideoAula(techConcept.youtubeId)}/>
-                    <FontAwesomeIcon icon={faCheck} className="icon-check-clickable" size="2x"/>
+                    <FontAwesomeIcon icon={faCheck}
+                                     className={`icon-check-clickable ${techConcept.techConceptStudent.status === "SUCCESS" ? "icon-check-active" : null}`}
+                                     size="2x"
+                                     onClick={() => this.techStepsService.updateTechConceptStatus(techConcept.techConceptStudent.id, techConcept.techConceptStudent.status === "SUCCESS" ? "NOT_STARTED" : "SUCCESS", () => this.getTechSteps(this.props.match.params.idName))}/>
                 </>
             case "PROGRAMING_QUESTION":
                 return <>
@@ -93,7 +114,8 @@ export class TechStepsScreen extends Component {
                 </Modal.Header>
                 <Modal.Body className="coding-task-modal-centralize">
                     <p className="coding-task-modal">
-                        It's hands-on time, let's code! Clone the repository below and do the exercises as explained in the Git module. Enjoy the coding 🤖😁‍!
+                        It's hands-on time, let's code! Clone the repository below and do the exercises as explained in
+                        the Git module. Enjoy the coding 🤖😁‍!
                     </p>
                     <br/>
                     <div className="coding-task-modal-code-centralize">
@@ -105,14 +127,19 @@ export class TechStepsScreen extends Component {
                                              .then(() => props.toast.info("Git clone copied."))}/>
                     </div>
                 </Modal.Body>
-                <Modal.Footer>
-                    {/*<Button onClick={props.onHide}>Close</Button>*/}
+                <Modal.Footer className="coding-task-modal-code-centralize">
+                    {props.gif ? <Gif gif={props.gif} height={300} /> : null}
+                    <small className="coding-task-modal"> PS: This is a <b>random gif</b> about computing</small>
                 </Modal.Footer>
             </Modal>
         );
     }
 
     render() {
+        if (this.state.redireciona) {
+            return <Redirect to={this.state.redireciona}/>
+        }
+
         return (
             <>
                 <ModalVideo channel='youtube' isOpen={this.state.modalVideoAulaId} videoId={this.state.modalVideoAulaId}
@@ -121,15 +148,17 @@ export class TechStepsScreen extends Component {
                 <this.CodingTaskVerticallyCenteredModal
                     codingTaskModal={this.state.renderCodingTaskModal}
                     onHide={() => this.setRenderCodingTaskModal(false)}
-                    toast={this.toast}/>
+                    toast={this.toast}
+                    gif={this.state.gif}
+                />
 
                 <div className="tech-steps">
                     <Header/>
-                    <TechHeaderSection/>
+                    <TechHeaderSection techSteps={this.state.techSteps}/>
 
                     <div className="tech-body">
                         <div className="tech-concepts">
-                            {this.state.techConceptList.map((techConcept) => {
+                            {this.state.techSteps.techConceptList.map((techConcept) => {
                                 return <>
                                     <div className="specific-concept">
                                         <h3>{techConcept.name}</h3>

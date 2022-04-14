@@ -11,4 +11,11 @@ export class TechStepsService extends BaseService {
             authorized: true
         })
     }
+
+    // @param callback Default value is a noop fn
+    updateTechConceptStatus = async (techConceptStudentId, status, callback = () => {}) => {
+        return super.put(`/tech-concept/${techConceptStudentId}/status/${status}`, null, {
+            authorized: true
+        }).then(callback)
+    }
 }

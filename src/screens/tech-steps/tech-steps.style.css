@@ -73,7 +73,7 @@
 }
 
 .tech-concepts{
-    background-color: #202027;
+    /*background-color: #202027;*/
     height: 100%;
     width: 80%;
     margin: 5% 10%;
@@ -134,7 +134,7 @@
     color: rgba(49, 9, 226, 0.5);
 }
 
-.icon-check-clickable:active{
+.icon-check-clickable:active, .icon-check-active{
     color: rgb(68, 227, 7);
 }
 

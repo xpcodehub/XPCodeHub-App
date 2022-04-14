@@ -8,6 +8,8 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.16",
+    "@giphy/js-fetch-api": "^4.1.2",
+    "@giphy/react-components": "^5.6.1",
     "@ramonak/react-progress-bar": "^4.1.0",
     "axios": "^0.21.4",
     "beautiful-skill-tree": "^1.7.1",
