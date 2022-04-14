@@ -276,3 +276,5 @@ modules.xml
 # .pnp.*
 
 # End of https://www.toptal.com/developers/gitignore/api/webstorm+iml,visualstudiocode,yarn,react,node
+
+.idea
