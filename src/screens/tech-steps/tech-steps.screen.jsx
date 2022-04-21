@@ -21,7 +21,8 @@ export class TechStepsScreen extends Component {
             modalVideoAulaId: false,
             techSteps: {techConceptList:[]},
             renderCodingTaskModal: false,
-            gif: false
+            gif: false,
+            redireciona: false
         }
 
         this.techStepsService = new TechStepsService();
@@ -65,6 +66,12 @@ export class TechStepsScreen extends Component {
         })
     }
 
+    redirectToProgrammingQuestions = (idProgrammingQuestion) => {
+        this.setState({
+            redireciona: `/programming-questions/${idProgrammingQuestion}`
+        })
+    }
+
     getTechConceptIcons = (techConcept) => {
         techConcept.show = true;
         switch (techConcept.type) {
@@ -80,7 +87,7 @@ export class TechStepsScreen extends Component {
             case "PROGRAMING_QUESTION":
                 return <>
                     <FontAwesomeIcon icon={faPen} className="icon-quiz-clickable"
-                                     size="2x"/>{/*TODO Redirecionar para exercicio de pergunta*/}
+                                     size="2x" onClick={() => this.redirectToProgrammingQuestions(techConcept.id)}/>
                     <FontAwesomeIcon icon={faCheck} className="icon-check" size="2x"/>
                 </>
             case "CODING_TASK":
@@ -128,7 +135,7 @@ export class TechStepsScreen extends Component {
                     </div>
                 </Modal.Body>
                 <Modal.Footer className="coding-task-modal-code-centralize">
-                    {props.gif ? <Gif gif={props.gif} height={300} /> : null}
+                    {props.gif ? <Gif gif={props.gif} height={300}  width={500}/> : null}
                     <small className="coding-task-modal"> PS: This is a <b>random gif</b> about computing</small>
                 </Modal.Footer>
             </Modal>

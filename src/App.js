@@ -1,6 +1,6 @@
 import {Switch, Route, Redirect} from "react-router-dom"
 import React, {Component} from 'react';
-import {LoginScreen, HomeScreen, ProgrammingTaskScreen, TechStepsScreen} from "./screens";
+import {LoginScreen, HomeScreen, ProgrammingQuestionsScreen, TechStepsScreen} from "./screens";
 import './App.css';
 import {UrlFinder} from "./services";
 import "react-toastify/dist/ReactToastify.css";
@@ -23,7 +23,7 @@ class App extends Component {
         return (
             <Switch>
                 <Route path="/" component={HomeScreen} exact/>
-                <Route path={this.urlFinder.getUrlProgrammingTask()} component={ProgrammingTaskScreen} exact/>
+                <Route path={this.urlFinder.getUrlProgrammingTask()} component={ProgrammingQuestionsScreen} exact/>
                 <Route path={this.urlFinder.getUrlTechSteps()} component={TechStepsScreen} exact/>
                 <Route path={this.urlFinder.getUrlLogin()} component={LoginScreen} exact/>
                 <Route path={this.urlFinder.getUrlLogout()} exact render={() => {

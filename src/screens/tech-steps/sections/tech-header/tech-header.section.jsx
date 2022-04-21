@@ -4,13 +4,7 @@ import ProgressBar from "@ramonak/react-progress-bar";
 
 export class TechHeaderSection extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
-        console.log("lol")
-        console.log(this.props.techSteps)
         return (
             <>
                 <div className="formacao-header formacao__background-color--front-end">
