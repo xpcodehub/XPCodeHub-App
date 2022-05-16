@@ -23,7 +23,7 @@ export class UrlFinder extends BaseService {
     }
 
     getUrlProgrammingTask = () => {
-        return "/programming-questions/:programmingQuestionsId";
+        return "/tech-steps/:techStepIdName/programming-questions/:programmingQuestionsId";
     }
 
     getUrlTechSteps = () => {

@@ -6,7 +6,6 @@ import {
     SkillProvider
 } from 'beautiful-skill-tree';
 import theme from '../sections/skill-tree.theme.js';
-import data from '../TODOreturn-from-back/TODOreturn-from-back-saved-data'; //TODO Tirar
 import {Redirect} from "react-router-dom";
 
 
@@ -16,12 +15,9 @@ export class SkillTreeSection extends Component {
         super(props);
         this.state = {
             redireciona: false,
+            savedData: {}
         }
     }
-
-    getSkillTreeSavedData = (treeId) => {
-        return data;
-    };
 
     selectSkill = async (skillId) => {
         await new Promise(r => setTimeout(r, 400)); // Timer para dar tempo do efeito do click. Faz sentido ter isso? TODO
@@ -34,6 +30,11 @@ export class SkillTreeSection extends Component {
         if (this.state.redireciona) {
             return <Redirect to={this.state.redireciona}/>
         }
+        console.log("preula")
+        console.log(this.props.savedData
+            .filter((savedData) => savedData.treeId === this.props.data.id)[0]?.skillTreeSavedData ?? {}
+        )
+
             return (
                 <>
                     <SkillProvider>
@@ -43,7 +44,8 @@ export class SkillTreeSection extends Component {
                                     <SkillTree treeId={this.props.data.id}
                                                title={this.props.data.title}
                                                data={this.props.data.root}
-                                               savedData={this.getSkillTreeSavedData(this.props.data.id)}
+                                               savedData={this.props.savedData
+                                                   .filter((savedData) => savedData.treeId === this.props.data.id)[0]?.skillTreeSavedData ?? {}}
                                                handleNodeSelect={(event) => this.selectSkill(event.key)}
                                     />
                                 )

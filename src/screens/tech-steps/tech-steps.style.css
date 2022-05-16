@@ -120,7 +120,7 @@
     margin: 2% 2%;
 }
 
-.icon-check:active{
+.icon-check-clickable:active{
     color: rgb(68, 227, 7);
 }
 
@@ -134,8 +134,28 @@
     color: rgba(49, 9, 226, 0.5);
 }
 
-.icon-check-clickable:active, .icon-check-active{
+.icon-check-clickable:active, .icon-check-SUCCESS{
     color: rgb(68, 227, 7);
+}
+
+.icon-check-PROCESSING {
+    color: yellow;
+    -webkit-animation:spin 2s linear infinite;
+    -moz-animation:spin 2s linear infinite;
+    animation:spin 2s linear infinite;
+}
+
+@-moz-keyframes spin {
+    100% { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform:rotate(360deg);
+    }
 }
 
 .icon-play-clickable:hover{

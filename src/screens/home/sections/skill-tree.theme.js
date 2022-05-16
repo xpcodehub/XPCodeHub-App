@@ -5,9 +5,9 @@ const theme = {
     heading: {
         font: "Homenaje, Impact, sans-serif"
     },
-    nodeBackgroundColor: "rgb(60,60,60)",
-    nodeActiveBackgroundColor: "#007bff",
-    nodeHoverBorderColor: "linear-gradient( to right, #007bff 0%, #007bff 100%)"
+    // nodeBackgroundColor: "rgb(60,60,60)",
+    // nodeActiveBackgroundColor: "#007bff",
+    // nodeHoverBorderColor: "linear-gradient( to right, #007bff 0%, #007bff 100%)"
 };
 
 export default theme;

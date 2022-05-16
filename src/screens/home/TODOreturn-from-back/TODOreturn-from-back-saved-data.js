@@ -4,16 +4,17 @@ export const data = {
                 optional: false,
                 nodeState: 'selected'
             },
-    'gradle':
-        {
-            optional: false,
-            nodeState: 'unlocked'
-        },
-    'oop':
-        {
-            optional: true,
-            nodeState: 'locked'
-        }
+        'dart':
+            {
+                optional: false,
+                nodeState: 'selected'
+            },
+        'flutter':
+            {
+                optional: false,
+                nodeState: 'selected'
+
+            }
     }
 ;
 

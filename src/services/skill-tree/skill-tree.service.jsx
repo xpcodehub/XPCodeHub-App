@@ -12,4 +12,16 @@ export class SkillTreeService extends BaseService {
             authorized: true
         })
     }
+
+    getSkillTreeSavedData = async () => {
+        return super.get(`/skill-tree-saved-data`, {
+            authorized: true
+        })
+    }
+
+    getUserInfo = async () => {
+        return super.get(`/student`, {
+            authorized: true
+        })
+    }
 }

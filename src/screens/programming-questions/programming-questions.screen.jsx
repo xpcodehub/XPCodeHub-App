@@ -3,6 +3,9 @@ import "./programming-questions.style.css"
 import {Header} from "../../components";
 import {ProgrammingQuestionsService} from "../../services";
 import ReactCanvasConfetti from "react-canvas-confetti";
+import {faHouseUser, faListUl} from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {Redirect} from "react-router-dom";
 
 const canvasStyles = {
     position: "fixed",
@@ -20,7 +23,8 @@ export class ProgrammingQuestionsScreen extends Component {
             programmingQuestions: {programmingQuestionList:[]},
             currentQuestionNumber: 0,
             answersIdChosenByStudent: new Map(),
-            programmingQuestionsResult: false
+            programmingQuestionsResult: false,
+            redireciona: false
         }
 
         this.animationInstance = null;
@@ -87,6 +91,13 @@ export class ProgrammingQuestionsScreen extends Component {
         this.animationInstance = instance;
     };
 
+    redirect = (path) => {
+
+        this.setState({
+            redireciona: path
+        })
+    }
+
     updateCurrentQuestionAndSendAnswer = async (questionId, answerId) => {
         this.state.answersIdChosenByStudent.set(questionId, answerId)
 
@@ -110,6 +121,10 @@ export class ProgrammingQuestionsScreen extends Component {
         return (
             <div className='score-section'>
                 You scored {this.state.programmingQuestionsResult.correctAnswers} out of {this.state.programmingQuestionsResult.numberOfQuestions}!
+                <div className='score-section-buttons'>
+                    <FontAwesomeIcon icon={faHouseUser} className="icons-score-section" onClick={() => this.redirect(`/`)}/>
+                    <FontAwesomeIcon icon={faListUl} className="icons-score-section" onClick={() => this.redirect(`/tech-steps/${this.props.match.params.techStepIdName}`)}/>
+                </div>
                 <ReactCanvasConfetti
                     refConfetti={this.getInstance}
                     style={canvasStyles}
@@ -119,8 +134,11 @@ export class ProgrammingQuestionsScreen extends Component {
     }
 
 
-
     render() {
+        if (this.state.redireciona) {
+            return <Redirect to={this.state.redireciona}/>
+        }
+
         const currentQuestion = this.state.programmingQuestions.programmingQuestionList[this.state.currentQuestionNumber]
         return (
             <>
