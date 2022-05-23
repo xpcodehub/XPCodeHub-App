@@ -20,7 +20,7 @@ export class SkillTreeSection extends Component {
     }
 
     selectSkill = async (skillId) => {
-        await new Promise(r => setTimeout(r, 400)); // Timer para dar tempo do efeito do click. Faz sentido ter isso? TODO
+        await new Promise(r => setTimeout(r, 200)); // Timer para dar tempo do efeito do click. Faz sentido ter isso? TODO
         this.setState({
             redireciona: `/tech-steps/${skillId}`
         })
@@ -30,10 +30,6 @@ export class SkillTreeSection extends Component {
         if (this.state.redireciona) {
             return <Redirect to={this.state.redireciona}/>
         }
-        console.log("preula")
-        console.log(this.props.savedData
-            .filter((savedData) => savedData.treeId === this.props.data.id)[0]?.skillTreeSavedData ?? {}
-        )
 
             return (
                 <>

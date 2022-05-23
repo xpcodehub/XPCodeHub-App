@@ -3,8 +3,6 @@ import "./home.style.css"
 import {Header} from "../../components";
 import {SkillTreeSection} from "./sections/skill-tree.section"
 import {SkillTreeService} from "../../services";
-import savedData from './TODOreturn-from-back/TODOreturn-from-back-saved-data'; //TODO Tirar
-import _ from "lodash";
 
 
 export class HomeScreen extends Component {
@@ -19,7 +17,6 @@ export class HomeScreen extends Component {
         this.skillTreeService = new SkillTreeService()
         this.getSkillTreeData()
         this.getSkillTreeSavedData()
-        this.getUserInfo()
     }
 
     getSkillTreeData = async () => {
@@ -36,18 +33,7 @@ export class HomeScreen extends Component {
         })
     };
 
-    getUserInfo = async (treeId) => {
-        // const user =  await this.skillTreeService.getUserInfo();
-        // this.setState({
-        //     user: user
-        // })
-    };
-
     render() {
-        // console.log("igual?")
-        // console.log(_.isEqual(this.state.user.skillTreeSavedData, savedData))
-        // console.log(this.state.user.skillTreeSavedData)
-        // console.log(savedData)
 
         return (
             <>

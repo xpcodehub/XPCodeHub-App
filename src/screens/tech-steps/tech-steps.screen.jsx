@@ -3,7 +3,7 @@ import {Header} from "../../components";
 import './tech-steps.style.css'
 import 'react-modal-video/css/modal-video.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faCheck, faClone, faCode, faPen, faPlayCircle, faSpinner} from '@fortawesome/free-solid-svg-icons'
+import {faCheckCircle, faClone, faCode, faPen, faPlayCircle, faSpinner} from '@fortawesome/free-solid-svg-icons'
 import ModalVideo from 'react-modal-video'
 import {TechHeaderSection} from "./sections/tech-header/tech-header.section";
 import {TechStepsService, ToastService} from "../../services";
@@ -81,7 +81,7 @@ export class TechStepsScreen extends Component {
                 return <>
                     <FontAwesomeIcon icon={faPlayCircle} className="icon-play-clickable" size="2x"
                                      onClick={() => this.renderModalVideoAula(techConcept.youtubeId)}/>
-                    <FontAwesomeIcon icon={faCheck}
+                    <FontAwesomeIcon icon={faCheckCircle}
                                      className={`icon-check-clickable icon-check-${techConcept.techConceptStudent.status}`}
                                      size="2x"
                                      onClick={() => this.techStepsService.updateTechConceptStatus(techConcept.techConceptStudent.id, techConcept.techConceptStudent.status === "SUCCESS" ? "NOT_STARTED" : "SUCCESS", () => this.getTechSteps(this.props.match.params.idName))}/>
@@ -90,13 +90,13 @@ export class TechStepsScreen extends Component {
                 return <>
                     <FontAwesomeIcon icon={faPen} className="icon-quiz-clickable"
                                      size="2x" onClick={() => this.redirectToProgrammingQuestions(techConcept.id)}/>
-                    <FontAwesomeIcon icon={faCheck} className={`icon-check icon-check-${techConcept.techConceptStudent.status}`} size="2x"/>
+                    <FontAwesomeIcon icon={faCheckCircle} className={`icon-check icon-check-${techConcept.techConceptStudent.status}`} size="2x"/>
                 </>
             case "CODING_TASK":
                 return <>
                     <FontAwesomeIcon icon={faCode} className="icon-code-clickable"
                                      onClick={() => this.setRenderCodingTaskModal(techConcept)} size="2x"/>
-                    <FontAwesomeIcon icon={techConcept.techConceptStudent.status === "PROCESSING" ? faSpinner : faCheck} className={`icon-check icon-check-${techConcept.techConceptStudent.status}`} size="2x"/>
+                    <FontAwesomeIcon icon={techConcept.techConceptStudent.status === "PROCESSING" ? faSpinner : faCheckCircle} className={`icon-check icon-check-${techConcept.techConceptStudent.status}`} size="2x"/>
                 </>
             default:
                 return <></>
