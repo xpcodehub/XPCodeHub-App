@@ -1,7 +1,7 @@
 {
   "name": "xpcodehub-app",
   "version": "0.1.0",
-  "homepage": "https://GustavoSTZ.github.io/app",
+  "homepage": "https://xpcodehub.com/",
   "private": true,
   "dependencies": {
     "@emotion/core": "^10.0.22",
@@ -30,7 +30,7 @@
   "scripts": {
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
-    "start": "cross-env REACT_APP_API_URL='http://localhost:8082' react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
