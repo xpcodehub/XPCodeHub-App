@@ -5,10 +5,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {ToastContainer} from "react-toastify";
-import {BrowserRouter} from "react-router-dom";
+import {HashRouter} from "react-router-dom";
 
 
-ReactDOM.render(<BrowserRouter><App/>
+ReactDOM.render(<HashRouter><App/>
     <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -19,7 +19,7 @@ ReactDOM.render(<BrowserRouter><App/>
         pauseOnVisibilityChange
         draggable
         pauseOnHover/>
-</BrowserRouter>, document.getElementById('root'));
+</HashRouter>, document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
