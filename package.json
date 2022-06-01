@@ -1,7 +1,7 @@
 {
   "name": "xpcodehub-app",
   "version": "0.1.0",
-  "homepage": ".",
+  "homepage": "https://xpcodehub.com/",
   "private": true,
   "dependencies": {
     "@emotion/core": "^10.0.22",
