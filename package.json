@@ -1,7 +1,7 @@
 {
   "name": "xpcodehub-app",
   "version": "0.1.0",
-  "homepage": "https://xpcodehub.com/",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@emotion/core": "^10.0.22",
@@ -30,8 +30,8 @@
   "scripts": {
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "cross-env REACT_APP_API_URL='http://localhost:8082' react-scripts start",
+    "build": "cross-env REACT_APP_API_URL='https://xpcodehub.herokuapp.com' react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -52,8 +52,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "cross-env": "^5.2.0"
   }
 }
