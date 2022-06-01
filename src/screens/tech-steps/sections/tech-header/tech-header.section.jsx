@@ -30,7 +30,7 @@ export class TechHeaderSection extends Component {
                                     <span className="formacao-finalizado-fracao__completed">
                                         {this.props.techSteps.progress ? this.props.techSteps.progress.finished : 0}</span>/{this.props.techSteps.progress ? this.props.techSteps.progress.size : 0}
                                 </span>
-                                    <span className="formacao-finalizado-label">Cursos finalizados</span>
+                                    <span className="formacao-finalizado-label"> Cursos finalizados</span>
                                 </div>
                             </div>
 

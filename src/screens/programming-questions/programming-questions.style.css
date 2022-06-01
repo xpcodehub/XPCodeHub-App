@@ -143,7 +143,8 @@
     justify-content: space-between;
 }
 
-button {
+.answer-section button {
+    margin: 1% 0;
     width: 100%;
     font-size: 16px;
     color: #ffffff;

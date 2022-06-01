@@ -120,7 +120,7 @@ export class ProgrammingQuestionsScreen extends Component {
         }
         return (
             <div className='score-section'>
-                You scored {this.state.programmingQuestionsResult.correctAnswers} out of {this.state.programmingQuestionsResult.numberOfQuestions}!
+                Você acertou {this.state.programmingQuestionsResult.correctAnswers} de {this.state.programmingQuestionsResult.numberOfQuestions}!
                 <div className='score-section-buttons'>
                     <FontAwesomeIcon icon={faHouseUser} className="icons-score-section" onClick={() => this.redirect(`/`)}/>
                     <FontAwesomeIcon icon={faListUl} className="icons-score-section" onClick={() => this.redirect(`/tech-steps/${this.props.match.params.techStepIdName}`)}/>

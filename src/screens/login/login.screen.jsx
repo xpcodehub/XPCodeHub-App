@@ -70,8 +70,8 @@ export class LoginScreen extends Component {
                     <div className="container-login full-height-grow">
                         <section className="join-main-section">
                             <h1 className="join-text">
-                                Join the
-                                <span className="accent-text"> fun.</span>
+                                Junte-se a
+                                <span className="accent-text"> Diversão.</span>
                             </h1>
                             <form className="join-form">
                                 {/*<LabelLogin*/}

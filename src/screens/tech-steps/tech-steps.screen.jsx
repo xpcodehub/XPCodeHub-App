@@ -122,8 +122,7 @@ export class TechStepsScreen extends Component {
                 </Modal.Header>
                 <Modal.Body className="coding-task-modal-centralize">
                     <p className="coding-task-modal">
-                        It's hands-on time, let's code! Clone the repository below and do the exercises as explained in
-                        the Git module. Enjoy the coding 🤖😁‍!
+                        É hora da prática, vamos codificar! Clone o repositório abaixo e faça os exercícios conforme explicado no módulo de Introdução ao XPCodeHub. Divirta-se com o código 🤖😁‍!
                     </p>
                     <br/>
                     <div className="coding-task-modal-code-centralize">
@@ -137,7 +136,7 @@ export class TechStepsScreen extends Component {
                 </Modal.Body>
                 <Modal.Footer className="coding-task-modal-code-centralize">
                     {props.gif ? <Gif gif={props.gif} height={300}  width={500}/> : null}
-                    <small className="coding-task-modal"> PS: This is a <b>random gif</b> about computing</small>
+                    <small className="coding-task-modal"> PS: Isso é um <b>gif aleatório</b> sobre computação</small>
                 </Modal.Footer>
             </Modal>
         );
