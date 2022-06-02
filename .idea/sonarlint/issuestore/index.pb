@@ -33,3 +33,6 @@ V
 +src/screens/tech-steps/tech-steps.style.css,4\a\4a7e021e488a965264619ecfbc0acc6e113cca2f
 Z
 *src/components/header/header.component.jsx,b\b\bbfb9bf2469583d2671d693d347ba983ab78e243
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302

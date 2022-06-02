@@ -22,7 +22,8 @@ export class BaseService {
     if(authorized) {
       config.headers = mountAuthHeader(config.headers)
     }
-    const result = await this.client.get(url, config)
+
+     const result = await this.client.get(url, config).catch(this.returnToHomeIfNotLogged)
 
     return result.data
   }
@@ -31,7 +32,7 @@ export class BaseService {
     if(authorized) {
       config.headers = mountAuthHeader(config.headers)
     }
-    const result = await this.client.post(url, body, config)
+    const result = await this.client.post(url, body, config).catch(this.returnToHomeIfNotLogged)
 
     return result.data
   }
@@ -41,7 +42,7 @@ export class BaseService {
       config.headers = mountAuthHeader(config.headers)
     }
 
-    const result = await this.client.put(url, body, config)
+    const result = await this.client.put(url, body, config).catch(this.returnToHomeIfNotLogged)
 
     return result.data
   }
@@ -50,9 +51,15 @@ export class BaseService {
     if(authorized) {
       config.headers = mountAuthHeader(config.headers)
     }
-    const result = await this.client.delete(url, config)
+    const result = await this.client.delete(url, config).catch(this.returnToHomeIfNotLogged)
 
     return result.data
   }
 
+  returnToHomeIfNotLogged(error) {
+    if(error.response.status === 403) {
+      window.location.href = '/#/login';
+    }
+    throw error.response.data
+  }
 }
