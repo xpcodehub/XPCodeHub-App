@@ -13,10 +13,13 @@ export class ProgrammingQuestionsService extends BaseService {
         })
     }
 
-    correctProgrammingQuestions = async (programmingQuestionsId, answersIdChosenByStudent) => {
-        console.log(JSON.stringify({questionIdAnswerIdMap: Object.fromEntries(answersIdChosenByStudent)}))
-
+    correctAllProgrammingQuestions = async (programmingQuestionsId, answersIdChosenByStudent) => {
         return super.post(`/programming-questions/${programmingQuestionsId}/correct`,
             {questionIdAnswerIdMap: Object.fromEntries(answersIdChosenByStudent)}, {authorized: true})
+    }
+
+    correctProgrammingQuestion = async (answersIdChosenByStudent) => {
+        return super.post(`/programming-question/correct`,
+            {answerId: answersIdChosenByStudent}, {authorized: true})
     }
 }

@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import "./programming-questions.style.css"
 import {Header} from "../../components";
-import {ProgrammingQuestionsService} from "../../services";
+import {ProgrammingQuestionsService, ToastService} from "../../services";
 import ReactCanvasConfetti from "react-canvas-confetti";
 import {faHouseUser, faListUl} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -29,6 +29,7 @@ export class ProgrammingQuestionsScreen extends Component {
 
         this.animationInstance = null;
         this.programmingQuestionsService = new ProgrammingQuestionsService()
+        this.toastService = new ToastService()
 
         this.getProgrammigQuestions(this.props.match.params.programmingQuestionsId)
     }
@@ -99,20 +100,29 @@ export class ProgrammingQuestionsScreen extends Component {
     }
 
     updateCurrentQuestionAndSendAnswer = async (questionId, answerId) => {
-        this.state.answersIdChosenByStudent.set(questionId, answerId)
-
-        if(this.state.answersIdChosenByStudent.size === this.state.programmingQuestions.programmingQuestionList.length) {
-            const programmingQuestionsResult = await this.programmingQuestionsService.correctProgrammingQuestions(this.props.match.params.programmingQuestionsId, this.state.answersIdChosenByStudent)
-            this.setState({
-                programmingQuestionsResult: programmingQuestionsResult
-            })
-
+        const answer = await this.programmingQuestionsService.correctProgrammingQuestion(answerId)
+        if(answer.correct) {
+            this.toastService.sucesso(answer.explanation)
+        } else {
+            this.toastService.aviso(answer.explanation)
         }
+
+        this.state.answersIdChosenByStudent.set(questionId, answerId)
+        await this.ifFinishedCorrectAllAnswersAndGetResult()
 
         this.setState({
             currentQuestionNumber: this.state.currentQuestionNumber + 1,
         })
     };
+
+    ifFinishedCorrectAllAnswersAndGetResult = async () => {
+        if(this.state.answersIdChosenByStudent.size === this.state.programmingQuestions.programmingQuestionList.length) {
+            const programmingQuestionsResult = await this.programmingQuestionsService.correctAllProgrammingQuestions(this.props.match.params.programmingQuestionsId, this.state.answersIdChosenByStudent)
+            this.setState({
+                programmingQuestionsResult: programmingQuestionsResult
+            })
+        }
+    }
 
     finishQuiz = () => {
         if(this.state.programmingQuestionsResult.correctAnswers === this.state.programmingQuestionsResult.numberOfQuestions) {
@@ -153,7 +163,7 @@ export class ProgrammingQuestionsScreen extends Component {
                                     <>
                                         <div className='question-section'>
                                             <div className='question-count'>
-                                                <span>Question {this.state.currentQuestionNumber + 1}</span>/{this.state.programmingQuestions.programmingQuestionList.length}
+                                                <span>Questão {this.state.currentQuestionNumber + 1}</span>/{this.state.programmingQuestions.programmingQuestionList.length}
                                             </div>
                                             <div className='question-text'>{currentQuestion.question}</div>
                                         </div>

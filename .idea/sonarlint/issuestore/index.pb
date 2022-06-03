@@ -21,8 +21,6 @@ Hsrc/screens/home/TODOreturn-from-back/TODOreturn-from-back-saved-data.js,d\3\d
 .src/services/skill-tree/skill-tree.service.jsx,7\1\718275aef333811b8f3afa55ed2b22e19450ba1b
 Q
 !src/services/user/user.service.js,3\b\3bb2f9da12122c884d4bf4e02c01cc1d38fa6b5b
-t
-Dsrc/services/programming-questions/programming-questions.service.jsx,4\c\4c885a91d0be9226941c8622e125643d60f8a825
 _
 /src/services/leaderboard/leaderboard.service.js,c\6\c65ab632389b3879bd4639fa6574d567ebc41d72
 E
