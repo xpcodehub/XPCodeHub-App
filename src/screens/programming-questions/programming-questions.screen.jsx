@@ -102,9 +102,9 @@ export class ProgrammingQuestionsScreen extends Component {
     updateCurrentQuestionAndSendAnswer = async (questionId, answerId) => {
         const answer = await this.programmingQuestionsService.correctProgrammingQuestion(answerId)
         if(answer.correct) {
-            this.toastService.sucesso(answer.explanation)
+            this.toastService.sucesso("✅ " + answer.explanation)
         } else {
-            this.toastService.aviso(answer.explanation)
+            this.toastService.aviso("❌ " + answer.explanation)
         }
 
         this.state.answersIdChosenByStudent.set(questionId, answerId)
@@ -130,7 +130,8 @@ export class ProgrammingQuestionsScreen extends Component {
         }
         return (
             <div className='score-section'>
-                Você acertou {this.state.programmingQuestionsResult.correctAnswers} de {this.state.programmingQuestionsResult.numberOfQuestions}!
+                Você acertou {this.state.programmingQuestionsResult.correctAnswers} de {this.state.programmingQuestionsResult.numberOfQuestions}. Ou seja,
+                {this.state.programmingQuestionsResult.correctAnswers/this.state.programmingQuestionsResult.numberOfQuestions >= 0.6 ? "mais que 60%, você passou!" : "menos de 60%, tente novamente."}
                 <div className='score-section-buttons'>
                     <FontAwesomeIcon icon={faHouseUser} className="icons-score-section" onClick={() => this.redirect(`/`)}/>
                     <FontAwesomeIcon icon={faListUl} className="icons-score-section" onClick={() => this.redirect(`/tech-steps/${this.props.match.params.techStepIdName}`)}/>

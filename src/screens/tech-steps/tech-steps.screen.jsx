@@ -131,7 +131,7 @@ export class TechStepsScreen extends Component {
                         </code>
                         <FontAwesomeIcon icon={faClone} className="icon-clone" size="lg"
                                          onClick={() => navigator.clipboard.writeText(gitClone)
-                                             .then(() => props.toast.info("Git clone copied."))}/>
+                                             .then(() => props.toast.info("Git clone copiado."))}/>
                     </div>
                 </Modal.Body>
                 <Modal.Footer className="coding-task-modal-code-centralize">
